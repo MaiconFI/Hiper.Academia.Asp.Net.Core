@@ -25,6 +25,6 @@ namespace Hiper.Academia.Asp.Net.Core.Web.Middlewares.TimeCheck
             }
         }
 
-        private bool AplicacaoDisponivelParaTransacoes => DateTime.Now.Hour > 21;
+        private bool AplicacaoDisponivelParaTransacoes => DateTime.Now.Hour <= 21;
     }
 }

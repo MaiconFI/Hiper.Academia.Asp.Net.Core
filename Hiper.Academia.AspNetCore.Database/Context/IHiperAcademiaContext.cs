@@ -1,23 +1,26 @@
-﻿using Hiper.Academia.Asp.Net.Core.Web.Domain;
+﻿using Hiper.Academia.AspNetCore.Domain;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Hiper.Academia.Asp.Net.Core.Web.Data.Context
+namespace Hiper.Academia.AspNetCore.Database.Context
 {
-    public interface IHiperAcademiaContext
+    public interface IHiperAcademiaContext : IDisposable
     {
         DbSet<Cliente> Clientes { get; set; }
 
         DbSet<ContaBancaria> ContasBancarias { get; set; }
 
+        DatabaseFacade Database { get; }
+
         DbSet<InstituicaoFinanceira> InstituicoesFinanceiras { get; set; }
+
+        bool AllMigrationsApplied();
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 
-        bool AllMigrationsApplied();
+        void Seed();
     }
 }

@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Hiper.Academia.Asp.Net.Core.Web.Domain.Base
+namespace Hiper.Academia.AspNetCore.Domain.Base
 {
-    public abstract class BaseEntity : BaseError
+    public abstract class EntityBase : ErrorBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

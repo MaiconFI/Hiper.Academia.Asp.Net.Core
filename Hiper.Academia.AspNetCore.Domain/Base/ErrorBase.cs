@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace Hiper.Academia.Asp.Net.Core.Web.Domain.Base
+namespace Hiper.Academia.AspNetCore.Domain.Base
 {
-    public abstract class BaseError
+    public abstract class ErrorBase
     {
-        protected BaseError()
+        protected ErrorBase()
         {
             Errors = new List<string>();
         }
 
+        [NotMapped]
         public ICollection<string> Errors { get; private set; }
 
         public void AddError(string error) => Errors.Add(error);

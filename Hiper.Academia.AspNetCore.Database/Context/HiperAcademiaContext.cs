@@ -1,19 +1,15 @@
-﻿using Hiper.Academia.Asp.Net.Core.Web.Domain;
+﻿using Hiper.Academia.AspNetCore.Database.Seeds;
+using Hiper.Academia.AspNetCore.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace Hiper.Academia.Asp.Net.Core.Web.Data.Context
+namespace Hiper.Academia.AspNetCore.Database.Context
 {
     public class HiperAcademiaContext : DbContext, IHiperAcademiaContext
     {
-
-        protected HiperAcademiaContext(DbContextOptions options)
+        public HiperAcademiaContext(DbContextOptions options)
             : base(options)
         {
         }
@@ -36,6 +32,8 @@ namespace Hiper.Academia.Asp.Net.Core.Web.Data.Context
 
             return !idsDeTodasAsMigrations.Except(idsDasMigrationsJaExecutadas).Any();
         }
+
+        public void Seed() => new Seed(this).Execute();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,12 +1,8 @@
-﻿using Hiper.Academia.Asp.Net.Core.Web.Domain;
+﻿using Hiper.Academia.AspNetCore.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Hiper.Academia.Asp.Net.Core.Web.Data.Configs
+namespace Hiper.Academia.AspNetCore.Database.Configs
 {
     public class ContaBancariaConfig : IEntityTypeConfiguration<ContaBancaria>
     {
@@ -20,7 +16,7 @@ namespace Hiper.Academia.Asp.Net.Core.Web.Data.Configs
             builder.Property(x => x.NumeroDaAgencia).HasMaxLength(ContaBancaria.NumeroDaAgenciaMaxLength).IsRequired();
             builder.Property(x => x.NumeroDaConta).HasMaxLength(ContaBancaria.NumeroDaContaMaxLength).IsRequired();
 
-            builder.HasOne(x => x.Cliente);
+            builder.HasOne(x => x.Cliente).WithMany(x => x.ContasBancarias);
             builder.HasOne(x => x.InstituicaoFinanceira);
         }
     }

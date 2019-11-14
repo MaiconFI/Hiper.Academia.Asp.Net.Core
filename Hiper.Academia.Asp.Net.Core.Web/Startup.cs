@@ -1,10 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Hiper.Academia.AspNetCore.Database.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -12,29 +11,49 @@ namespace Hiper.Academia.Asp.Net.Core.Web
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
+        private readonly IConfiguration _configuration;
+
+        public Startup(IConfiguration configuration)
         {
+            _configuration = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
+            app.UseMvc()
+                .UseApiVersioning();
+        }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<IHiperAcademiaContext, HiperAcademiaContext>(opt => opt.UseInMemoryDatabase(databaseName: "teste"));
+            MigrateDatabase(services);
+
+            services
+                .AddMvc(m => { m.EnableEndpointRouting = false; })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddApiVersioning(s =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                s.DefaultApiVersion = new ApiVersion(1, 0);
+                s.ReportApiVersions = true;
+                s.AssumeDefaultVersionWhenUnspecified = true;
             });
+        }
+
+        private void MigrateDatabase(IServiceCollection services)
+        {
+            using var serviceScope = services.BuildServiceProvider().CreateScope();
+            using var context = serviceScope.ServiceProvider.GetService<IHiperAcademiaContext>();
+
+            //if (context.AllMigrationsApplied()) return;
+
+            //context.Database.Migrate();
+            context.Seed();
         }
     }
 }

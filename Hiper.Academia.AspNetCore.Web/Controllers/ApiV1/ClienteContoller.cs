@@ -1,10 +1,10 @@
-﻿using Hiper.Academia.Asp.Net.Core.Web.Controllers.ApiV1.Base;
-using Hiper.Academia.AspNetCore.Database.Context;
+﻿using Hiper.Academia.AspNetCore.Database.Context;
+using Hiper.Academia.AspNetCore.Web.Controllers.ApiV1.Base;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace Hiper.Academia.Asp.Net.Core.Web.Controllers.ApiV1
+namespace Hiper.Academia.AspNetCore.Web.Controllers.ApiV1
 {
     [Route("v{version:apiVersion}/cliente")]
     public class ClienteContoller : ApiV1BaseController

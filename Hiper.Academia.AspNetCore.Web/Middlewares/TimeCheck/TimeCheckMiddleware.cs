@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Hiper.Academia.Asp.Net.Core.Web.Middlewares.TimeCheck
+namespace Hiper.Academia.AspNetCore.Web.Middlewares.TimeCheck
 {
     public class TimeCheckMiddleware
     {
@@ -13,9 +13,11 @@ namespace Hiper.Academia.Asp.Net.Core.Web.Middlewares.TimeCheck
             _next = next;
         }
 
+        private bool AplicacaoDisponivelParaTransacoes => DateTime.Now.Hour <= 21;
+
         public async Task Invoke(HttpContext context)
         {
-            if (AplicacaoDisponivelParaTransacoes) 
+            if (AplicacaoDisponivelParaTransacoes)
                 await _next(context);
             else
             {
@@ -24,7 +26,5 @@ namespace Hiper.Academia.Asp.Net.Core.Web.Middlewares.TimeCheck
                 await context.Response.WriteAsync("Você só pode realizar trasações até às 21:59:59");
             }
         }
-
-        private bool AplicacaoDisponivelParaTransacoes => DateTime.Now.Hour <= 21;
     }
 }

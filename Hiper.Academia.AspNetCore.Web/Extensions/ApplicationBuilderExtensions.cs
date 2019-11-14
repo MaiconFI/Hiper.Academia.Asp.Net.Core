@@ -1,7 +1,7 @@
-﻿using Hiper.Academia.Asp.Net.Core.Web.Middlewares.TimeCheck;
+﻿using Hiper.Academia.AspNetCore.Web.Middlewares.TimeCheck;
 using Microsoft.AspNetCore.Builder;
 
-namespace Hiper.Academia.Asp.Net.Core.Web.Extensions
+namespace Hiper.Academia.AspNetCore.Web.Extensions
 {
     public static class ApplicationBuilderExtensions
     {

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Hiper.Academia.Asp.Net.Core.Web
+namespace Hiper.Academia.AspNetCore.Web
 {
     public class Startup
     {

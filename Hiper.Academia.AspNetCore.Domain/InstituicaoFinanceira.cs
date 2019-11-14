@@ -4,9 +4,8 @@ namespace Hiper.Academia.AspNetCore.Domain
 {
     public class InstituicaoFinanceira : EntityBase
     {
-        public const int NomeMaxLength = 100;
-
         public const int CodigoMaxLength = 10;
+        public const int NomeMaxLength = 100;
 
         public InstituicaoFinanceira(string codigo, string nome)
         {
@@ -18,8 +17,7 @@ namespace Hiper.Academia.AspNetCore.Domain
         {
         }
 
-        public string Nome { get; private set; }
-
         public string Codigo { get; private set; }
+        public string Nome { get; private set; }
     }
 }

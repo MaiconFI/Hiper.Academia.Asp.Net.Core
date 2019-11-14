@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hiper.Academia.Asp.Net.Core.Web", "Hiper.Academia.Asp.Net.Core.Web\Hiper.Academia.Asp.Net.Core.Web.csproj", "{05539FC2-DEFA-4E9A-8BCA-7FC74AA89081}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hiper.Academia.AspNetCore.Web", "Hiper.Academia.AspNetCore.Web\Hiper.Academia.AspNetCore.Web.csproj", "{05539FC2-DEFA-4E9A-8BCA-7FC74AA89081}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hiper.Academia.AspNetCore.Domain", "Hiper.Academia.AspNetCore.Domain\Hiper.Academia.AspNetCore.Domain.csproj", "{5EB30948-AAE3-469C-B8E2-C73FBF7EB8B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hiper.Academia.AspNetCore.Domain", "Hiper.Academia.AspNetCore.Domain\Hiper.Academia.AspNetCore.Domain.csproj", "{5EB30948-AAE3-469C-B8E2-C73FBF7EB8B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hiper.Academia.AspNetCore.Database", "Hiper.Academia.AspNetCore.Database\Hiper.Academia.AspNetCore.Database.csproj", "{AB4BFF6C-3F2B-48C8-83CE-4EDC637D4E25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hiper.Academia.AspNetCore.Database", "Hiper.Academia.AspNetCore.Database\Hiper.Academia.AspNetCore.Database.csproj", "{AB4BFF6C-3F2B-48C8-83CE-4EDC637D4E25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

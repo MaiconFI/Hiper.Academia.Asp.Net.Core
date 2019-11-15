@@ -17,6 +17,8 @@ namespace Hiper.Academia.AspNetCore.Database.Context
 
         DbSet<InstituicaoFinanceira> InstituicoesFinanceiras { get; set; }
 
+        DbSet<Operacao> Operacoes { get; set; }
+
         bool AllMigrationsApplied();
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

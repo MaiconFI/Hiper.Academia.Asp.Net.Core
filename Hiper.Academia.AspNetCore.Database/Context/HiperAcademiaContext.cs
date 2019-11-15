@@ -20,6 +20,8 @@ namespace Hiper.Academia.AspNetCore.Database.Context
 
         public DbSet<InstituicaoFinanceira> InstituicoesFinanceiras { get; set; }
 
+        public DbSet<Operacao> Operacoes { get; set; }
+
         public bool AllMigrationsApplied()
         {
             var idsDasMigrationsJaExecutadas = this.GetService<IHistoryRepository>()

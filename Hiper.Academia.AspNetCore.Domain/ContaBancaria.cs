@@ -1,4 +1,5 @@
 ﻿using Hiper.Academia.AspNetCore.Domain.Base;
+using System.Collections.Generic;
 
 namespace Hiper.Academia.AspNetCore.Domain
 {
@@ -29,5 +30,6 @@ namespace Hiper.Academia.AspNetCore.Domain
         public InstituicaoFinanceira InstituicaoFinanceira { get; private set; }
         public string NumeroDaAgencia { get; private set; }
         public string NumeroDaConta { get; private set; }
+        public ICollection<Operacao> Operacoes { get; private set; }
     }
 }

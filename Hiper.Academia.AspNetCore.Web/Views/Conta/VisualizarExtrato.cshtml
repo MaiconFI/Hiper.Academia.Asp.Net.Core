@@ -1,0 +1,29 @@
+﻿@model Hiper.Academia.AspNetCore.Web.ViewModels.Conta.Extrato.ExtratoViewModel
+@{
+    ViewData["Title"] = "Extrato - Hiper Conta";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h4>Visualizar extrato</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Operação</th>
+            <th scope="col">Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var operacao in Model.Operacoes)
+        {
+            <tr>
+                <th scope="row">@operacao.Data.ToShortDateString()</th>
+                <td>@operacao.Descricao</td>
+                <td>@(operacao.IsEntrada ? "(+)" : "(-)")</td>
+                <td>@operacao.Valor.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

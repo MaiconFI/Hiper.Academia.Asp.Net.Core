@@ -6,8 +6,6 @@ namespace Hiper.Academia.AspNetCore.Web.Controllers
     {
         [Route("")]
         public IActionResult Index()
-        {
-            return View();
-        }
+            => View();
     }
 }

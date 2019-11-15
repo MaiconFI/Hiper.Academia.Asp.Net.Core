@@ -15,6 +15,8 @@ namespace Hiper.Academia.AspNetCore.Database.Configs
             builder.Property(x => x.DataDeNascimento).IsRequired();
             builder.Property(x => x.Nome).HasMaxLength(Cliente.NomeMaxLength).IsRequired();
             builder.Property(x => x.Telefone).HasMaxLength(Cliente.TelefoneMaxLength).IsRequired();
+
+            builder.HasIndex(x => x.IdExterno).IsUnique();
         }
     }
 }

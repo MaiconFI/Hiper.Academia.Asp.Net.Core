@@ -13,6 +13,8 @@ namespace Hiper.Academia.AspNetCore.Database.Configs
 
             builder.Property(x => x.Codigo).HasMaxLength(InstituicaoFinanceira.CodigoMaxLength).IsRequired();
             builder.Property(x => x.Nome).HasMaxLength(InstituicaoFinanceira.NomeMaxLength).IsRequired();
+
+            builder.HasIndex(x => x.IdExterno).IsUnique();
         }
     }
 }

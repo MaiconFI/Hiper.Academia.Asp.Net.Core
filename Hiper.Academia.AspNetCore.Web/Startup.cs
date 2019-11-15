@@ -1,10 +1,13 @@
 using Hiper.Academia.AspNetCore.Database.Context;
+using Hiper.Academia.AspNetCore.Repositories.IoC;
+using Hiper.Academia.AspNetCore.Services.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
 using Microsoft.Extensions.Hosting;
 
 namespace Hiper.Academia.AspNetCore.Web
@@ -43,6 +46,9 @@ namespace Hiper.Academia.AspNetCore.Web
                 s.ReportApiVersions = true;
                 s.AssumeDefaultVersionWhenUnspecified = true;
             });
+
+            IoCServices.Register(services);
+            IoCRepositories.Register(services);
         }
 
         private void MigrateDatabase(IServiceCollection services)

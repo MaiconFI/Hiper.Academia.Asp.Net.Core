@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hiper.Academia.AspNetCore.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hiper.Academia.AspNetCore.Database", "Hiper.Academia.AspNetCore.Database\Hiper.Academia.AspNetCore.Database.csproj", "{AB4BFF6C-3F2B-48C8-83CE-4EDC637D4E25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hiper.Academia.AspNetCore.Repositories", "Hiper.Academia.AspNetCore.Repositories\Hiper.Academia.AspNetCore.Repositories.csproj", "{ACCED1A2-EC96-4DDE-B58C-45B603B3A2FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hiper.Academia.AspNetCore.Repositories", "Hiper.Academia.AspNetCore.Repositories\Hiper.Academia.AspNetCore.Repositories.csproj", "{ACCED1A2-EC96-4DDE-B58C-45B603B3A2FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hiper.Academia.AspNetCore.Services", "Hiper.Academia.AspNetCore.Services\Hiper.Academia.AspNetCore.Services.csproj", "{A2E4FA4A-F077-4ECD-A5A5-5BB7A6054BAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hiper.Academia.AspNetCore.Dtos", "Hiper.Academia.AspNetCore.Dtos\Hiper.Academia.AspNetCore.Dtos.csproj", "{C9F65F38-7FB2-4307-82A9-5640FC52ACBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{ACCED1A2-EC96-4DDE-B58C-45B603B3A2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACCED1A2-EC96-4DDE-B58C-45B603B3A2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACCED1A2-EC96-4DDE-B58C-45B603B3A2FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2E4FA4A-F077-4ECD-A5A5-5BB7A6054BAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2E4FA4A-F077-4ECD-A5A5-5BB7A6054BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2E4FA4A-F077-4ECD-A5A5-5BB7A6054BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2E4FA4A-F077-4ECD-A5A5-5BB7A6054BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F65F38-7FB2-4307-82A9-5640FC52ACBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F65F38-7FB2-4307-82A9-5640FC52ACBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F65F38-7FB2-4307-82A9-5640FC52ACBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F65F38-7FB2-4307-82A9-5640FC52ACBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

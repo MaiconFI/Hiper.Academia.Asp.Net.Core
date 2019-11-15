@@ -1,5 +1,5 @@
 ﻿using Hiper.Academia.AspNetCore.Database.Context;
-using Hiper.Academia.AspNetCore.Domain;
+using Hiper.Academia.AspNetCore.Domain.ContasBancarias;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 

@@ -1,5 +1,7 @@
 ﻿using Hiper.Academia.AspNetCore.Database.Seeds;
 using Hiper.Academia.AspNetCore.Domain;
+using Hiper.Academia.AspNetCore.Domain.ContasBancarias;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
@@ -19,6 +21,7 @@ namespace Hiper.Academia.AspNetCore.Database.Context
         public DbSet<ContaBancaria> ContasBancarias { get; set; }
 
         public DbSet<InstituicaoFinanceira> InstituicoesFinanceiras { get; set; }
+        public DbSet<MovimentacaoBancaria> MovimentacoesBancarias { get; set; }
 
         public bool AllMigrationsApplied()
         {

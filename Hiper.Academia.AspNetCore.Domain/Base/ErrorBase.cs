@@ -8,7 +8,7 @@ namespace Hiper.Academia.AspNetCore.Domain.Base
     {
         protected ErrorBase()
         {
-            Errors = new List<string>();
+            Errors ??= new List<string>();
         }
 
         [NotMapped]

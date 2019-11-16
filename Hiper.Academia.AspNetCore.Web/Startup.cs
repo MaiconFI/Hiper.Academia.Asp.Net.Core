@@ -1,4 +1,7 @@
+using AutoMapper;
 using Hiper.Academia.AspNetCore.Database.Context;
+using Hiper.Academia.AspNetCore.Repositories.Operacoes;
+using Hiper.Academia.AspNetCore.Web.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +46,9 @@ namespace Hiper.Academia.AspNetCore.Web
                 s.ReportApiVersions = true;
                 s.AssumeDefaultVersionWhenUnspecified = true;
             });
+
+            services.AddSingleton(new MapperConfiguration(x => { x.AddProfile(new HiperAcademiaProfile()); }).CreateMapper());
+            services.AddScoped<IOperacaoRepository, OperacaoRepository>();
         }
 
         private void MigrateDatabase(IServiceCollection services)

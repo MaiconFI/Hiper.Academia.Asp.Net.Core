@@ -7,9 +7,10 @@ namespace Hiper.Academia.AspNetCore.Domain
     {
         public const int DescricaoDaOperacaoMaxLength = 80;
 
-        public Operacao(ContaBancaria contaBancaria, string descricao, bool isEntrada, decimal valor)
+        public Operacao(ContaBancaria contaBancaria, DateTime data, string descricao, bool isEntrada, decimal valor)
         {
             ContaBancaria = contaBancaria;
+            Data = data;
             Descricao = descricao;
             IsEntrada = isEntrada;
             Valor = valor;

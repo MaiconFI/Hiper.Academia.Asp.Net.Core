@@ -9,7 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Hiper.Academia.AspNetCore.Database\Hiper.Academia.AspNetCore.Database.csproj" />
+    <ProjectReference Include="..\Hiper.Academia.AspNetCore.Dtos\Hiper.Academia.AspNetCore.Dtos.csproj" />
+    <ProjectReference Include="..\Hiper.Academia.AspNetCore.Repositories\Hiper.Academia.AspNetCore.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

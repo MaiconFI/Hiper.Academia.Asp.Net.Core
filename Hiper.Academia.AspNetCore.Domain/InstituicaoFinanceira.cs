@@ -9,8 +9,8 @@ namespace Hiper.Academia.AspNetCore.Domain
 
         public InstituicaoFinanceira(string codigo, string nome)
         {
-            Codigo = codigo;
-            Nome = nome;
+            SetCodigo(codigo);
+            SetNome(nome);
         }
 
         protected InstituicaoFinanceira()
@@ -19,5 +19,27 @@ namespace Hiper.Academia.AspNetCore.Domain
 
         public string Codigo { get; private set; }
         public string Nome { get; private set; }
+
+        private void SetCodigo(string codigo)
+        {
+            if (string.IsNullOrWhiteSpace(codigo))
+            {
+                AddError("A codigo é obrigatório.");
+                return;
+            }
+
+            Codigo = codigo;
+        }
+
+        private void SetNome(string nome)
+        {
+            if (string.IsNullOrWhiteSpace(nome))
+            {
+                AddError("A nome é obrigatório.");
+                return;
+            }
+
+            Nome = nome;
+        }
     }
 }

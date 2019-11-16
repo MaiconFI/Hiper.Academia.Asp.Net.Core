@@ -1,4 +1,4 @@
-﻿using Hiper.Academia.AspNetCore.Domain;
+﻿using Hiper.Academia.AspNetCore.Domain.ContasBancarias;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,6 +18,8 @@ namespace Hiper.Academia.AspNetCore.Database.Configs
 
             builder.HasOne(x => x.Cliente).WithMany(x => x.ContasBancarias);
             builder.HasOne(x => x.InstituicaoFinanceira);
+
+            builder.HasIndex(x => x.IdExterno).IsUnique();
         }
     }
 }

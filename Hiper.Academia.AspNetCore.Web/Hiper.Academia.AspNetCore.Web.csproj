@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Hiper.Academia.AspNetCore.Database\Hiper.Academia.AspNetCore.Database.csproj" />
     <ProjectReference Include="..\Hiper.Academia.AspNetCore.Repositories\Hiper.Academia.AspNetCore.Repositories.csproj" />
+    <ProjectReference Include="..\Hiper.Academia.AspNetCore.Services\Hiper.Academia.AspNetCore.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -23,12 +23,12 @@ namespace Hiper.Academia.AspNetCore.Repositories.ContasBancarias
 
         public async Task<ICollection<MovimentacaoBancaria>> GetMovimentacoesAsync(Guid contaBancariaIdExterno)
             => await _hiperAcademiaContext.MovimentacoesBancarias
-                    //.Where(x => x.ContaBancaria.IdExterno == contaBancariaIdExterno)
+                    //.Where(x => x.ContaBancaria.IdExterno == contaBancariaIdExterno) --entender pq não está funcionando
                     .ToListAsync();
 
         public async Task<decimal> GetSaldoAsync(Guid contaBancariaIdExterno)
                     => await _hiperAcademiaContext.MovimentacoesBancarias
-                //.Where(x => x.ContaBancaria.IdExterno == contaBancariaIdExterno)
+                //.Where(x => x.ContaBancaria.IdExterno == contaBancariaIdExterno) --entender pq não está funcionando
                 .Select(x => new
                 {
                     Valor = x is Deposito ? x.Valor : -x.Valor

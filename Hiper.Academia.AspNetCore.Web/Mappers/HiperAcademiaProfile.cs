@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Hiper.Academia.AspNetCore.Domain;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
+using Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias;
 using Hiper.Academia.AspNetCore.Web.Mappers.Converters.Operacoes;
-using Hiper.Academia.AspNetCore.Web.ViewModels.Conta.Extrato;
 
 namespace Hiper.Academia.AspNetCore.Web.Mappers
 {
@@ -9,7 +9,7 @@ namespace Hiper.Academia.AspNetCore.Web.Mappers
     {
         public HiperAcademiaProfile()
         {
-            CreateMap<Operacao, OperacaoViewModel>().ConvertUsing<OperacaoViewModelConverter>();
+            CreateMap<MovimentacaoBancaria, MovimentacaoBancariaDto>().ConvertUsing<MovimentacaoBancariaDtoConverter>();
         }
     }
 }

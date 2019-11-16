@@ -17,13 +17,9 @@ namespace Hiper.Academia.AspNetCore.Database.Context
         }
 
         public DbSet<Cliente> Clientes { get; set; }
-
         public DbSet<ContaBancaria> ContasBancarias { get; set; }
-
         public DbSet<InstituicaoFinanceira> InstituicoesFinanceiras { get; set; }
         public DbSet<MovimentacaoBancaria> MovimentacoesBancarias { get; set; }
-
-        public DbSet<Operacao> Operacoes { get; set; }
 
         public bool AllMigrationsApplied()
         {

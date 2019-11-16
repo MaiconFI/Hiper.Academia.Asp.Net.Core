@@ -1,17 +1,16 @@
 ﻿using AutoMapper;
-using Hiper.Academia.AspNetCore.Domain;
-using Hiper.Academia.AspNetCore.Web.ViewModels.Conta.Extrato;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
+using Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias;
 
 namespace Hiper.Academia.AspNetCore.Web.Mappers.Converters.Operacoes
 {
-    public class OperacaoViewModelConverter : ITypeConverter<Operacao, OperacaoViewModel>
+    public class MovimentacaoBancariaDtoConverter : ITypeConverter<MovimentacaoBancaria, MovimentacaoBancariaDto>
     {
-        public OperacaoViewModel Convert(Operacao source, OperacaoViewModel destination, ResolutionContext context)
-            => new OperacaoViewModel()
+        public MovimentacaoBancariaDto Convert(MovimentacaoBancaria source, MovimentacaoBancariaDto destination, ResolutionContext context)
+            => new MovimentacaoBancariaDto()
             {
                 Data = source.Data,
-                Descricao = source.Descricao,
-                IsEntrada = source.IsEntrada,
+                IsEntrada = source is Deposito,
                 Valor = source.Valor
             };
     }

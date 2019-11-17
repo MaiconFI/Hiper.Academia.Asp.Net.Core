@@ -47,7 +47,7 @@ namespace Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias
 
         private void SetValor(decimal valor)
         {
-            if (valor == default)
+            if (valor <= default(decimal))
             {
                 AddError("O valor informado deve maior que zero.");
                 return;

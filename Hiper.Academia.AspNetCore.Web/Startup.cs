@@ -1,8 +1,8 @@
 using AutoMapper;
 using Hiper.Academia.AspNetCore.Database.Context;
-using Hiper.Academia.AspNetCore.Web.Mappers;
 using Hiper.Academia.AspNetCore.Repositories.IoC;
 using Hiper.Academia.AspNetCore.Services.IoC;
+using Hiper.Academia.AspNetCore.Web.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -52,7 +52,12 @@ namespace Hiper.Academia.AspNetCore.Web
             IoCServices.Register(services);
             IoCRepositories.Register(services);
 
-            services.AddSingleton(new MapperConfiguration(x => { x.AddProfile(new HiperAcademiaProfile()); }).CreateMapper());
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new HiperAcademiaProfile());
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         private void MigrateDatabase(IServiceCollection services)

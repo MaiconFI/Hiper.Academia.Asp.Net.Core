@@ -1,8 +1,5 @@
-﻿using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
-using Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias;
+﻿using Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias;
 using Hiper.Academia.AspNetCore.Repositories.ContasBancarias;
-using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias
@@ -30,8 +27,5 @@ namespace Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias
 
             return null;
         }
-
-        public async Task<ICollection<MovimentacaoBancaria>> GetMovimentacoesAsync(Guid contaBancariaIdExterno)
-            => await _contaBancariaRepository.GetMovimentacoesAsync(contaBancariaIdExterno);
     }
 }

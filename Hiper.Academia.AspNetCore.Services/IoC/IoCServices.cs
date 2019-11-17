@@ -1,5 +1,4 @@
-﻿using Hiper.Academia.AspNetCore.Services.ContasBancarias;
-using Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias;
+﻿using Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Hiper.Academia.AspNetCore.Services.IoC
@@ -8,7 +7,6 @@ namespace Hiper.Academia.AspNetCore.Services.IoC
     {
         public static void Register(IServiceCollection services)
         {
-            services.AddScoped<IContaBancariaServices, ContaBancariaServices>();
             services.AddScoped<IMovimentacaoBancariaServices, MovimentacaoBancariaServices>();
         }
     }

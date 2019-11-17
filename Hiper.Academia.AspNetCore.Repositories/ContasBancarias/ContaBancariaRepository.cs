@@ -18,7 +18,7 @@ namespace Hiper.Academia.AspNetCore.Repositories.ContasBancarias
             _hiperAcademiaContext = hiperAcademiaContext;
         }
 
-        public async Task<ContaBancaria> GetContaBancariaLogadaAsync()
+        public async Task<ContaBancaria> GetContaBancariaPadraoAsync()
             => await _hiperAcademiaContext.ContasBancarias.FirstOrDefaultAsync();
 
         public async Task<ICollection<MovimentacaoBancaria>> GetMovimentacoesAsync(Guid contaBancariaIdExterno)

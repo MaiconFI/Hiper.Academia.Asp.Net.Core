@@ -8,7 +8,7 @@ namespace Hiper.Academia.AspNetCore.Repositories.ContasBancarias
 {
     public interface IContaBancariaRepository
     {
-        Task<ContaBancaria> GetContaBancariaLogadaAsync();
+        Task<ContaBancaria> GetContaBancariaPadraoAsync();
 
         Task<ICollection<MovimentacaoBancaria>> GetMovimentacoesAsync(Guid contaBancariaIdExterno);
 

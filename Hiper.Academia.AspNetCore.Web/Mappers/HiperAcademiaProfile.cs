@@ -9,7 +9,7 @@ namespace Hiper.Academia.AspNetCore.Web.Mappers
     {
         public HiperAcademiaProfile()
         {
-            CreateMap<MovimentacaoBancaria, MovimentacaoBancariaDto>().ConvertUsing<MovimentacaoBancariaDtoConverter>();
+            CreateMap<MovimentacaoBancaria, MovimentacaoBancariaDto>().ConvertUsing<MovimentacaoBancariaToMovimentacaoBancariaDtoConverter>();
         }
     }
 }

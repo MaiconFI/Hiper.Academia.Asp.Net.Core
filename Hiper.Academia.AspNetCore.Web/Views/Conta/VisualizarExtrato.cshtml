@@ -19,7 +19,7 @@
         {
             <tr>
                 <th scope="row">@movimentacao.Data.ToShortDateString()</th>
-                <td>@(movimentacao.IsEntrada ? "(+)" : "(-)")</td>
+                <td>@(movimentacao.IsDeposito ? "(+)" : "(-)")</td>
                 <td>@movimentacao.Valor.ToString("C")</td>
             </tr>
         }

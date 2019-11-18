@@ -2,6 +2,7 @@ using AutoMapper;
 using Hiper.Academia.AspNetCore.Database.Context;
 using Hiper.Academia.AspNetCore.Repositories.IoC;
 using Hiper.Academia.AspNetCore.Services.IoC;
+using Hiper.Academia.AspNetCore.Web.Extensions;
 using Hiper.Academia.AspNetCore.Web.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +28,7 @@ namespace Hiper.Academia.AspNetCore.Web
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
+            app.UseTimeCheck();
             app.UseRouting();
 
             app.UseMvc()

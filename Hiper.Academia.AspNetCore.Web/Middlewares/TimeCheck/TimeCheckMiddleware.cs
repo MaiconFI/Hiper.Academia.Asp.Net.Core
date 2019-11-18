@@ -6,6 +6,7 @@ namespace Hiper.Academia.AspNetCore.Web.Middlewares.TimeCheck
 {
     public class TimeCheckMiddleware
     {
+        private readonly int _hourLimit = 12;
         private readonly RequestDelegate _next;
 
         public TimeCheckMiddleware(RequestDelegate next)
@@ -13,7 +14,7 @@ namespace Hiper.Academia.AspNetCore.Web.Middlewares.TimeCheck
             _next = next;
         }
 
-        private bool AplicacaoDisponivelParaTransacoes => DateTime.Now.Hour <= 21;
+        private bool AplicacaoDisponivelParaTransacoes => DateTime.Now.Hour <= _hourLimit;
 
         public async Task Invoke(HttpContext context)
         {
@@ -23,7 +24,7 @@ namespace Hiper.Academia.AspNetCore.Web.Middlewares.TimeCheck
             {
                 context.Response.StatusCode = 403;
                 context.Response.ContentType = "application/json";
-                await context.Response.WriteAsync("Você só pode realizar trasações até às 21:59:59");
+                await context.Response.WriteAsync($"Você só pode realizar trasações até às {_hourLimit}:59:59");
             }
         }
     }

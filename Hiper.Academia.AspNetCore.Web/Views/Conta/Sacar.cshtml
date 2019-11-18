@@ -4,15 +4,14 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h4>Sacar</h4>
-
-<div>
-    <div class="form-group">
-        Saldo atual: R$ <span id="saldo-atual">@Model.Saldo.ToString("N2")</span>
+<div class="card">
+    <div class="card-body">
+        <h4>Sacar</h4>
+        <p>Saldo atual: R$ <span id="saldo-atual">@Model.Saldo.ToString("N2")</span></p>
+        <div class="form-group">
+            <label>Valor</label>
+            <input type="number" class="form-control" id="valor">
+        </div>
+        <button type="submit" class="btn btn-primary">Sacar</button>
     </div>
-    <div class="form-group">
-        <label>Valor</label>
-        <input type="number" class="form-control" id="valor">
-    </div>
-    <button type="submit" class="btn btn-primary">Sacar</button>
 </div>

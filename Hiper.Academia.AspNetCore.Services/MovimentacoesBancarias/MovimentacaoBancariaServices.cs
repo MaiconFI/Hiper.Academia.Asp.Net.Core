@@ -1,16 +1,29 @@
-﻿using Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias;
+﻿using AutoMapper;
+using Hiper.Academia.AspNetCore.Database.Context;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
+using Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias;
 using Hiper.Academia.AspNetCore.Repositories.ContasBancarias;
+using Hiper.Academia.AspNetCore.Repositories.MovimentacoesBancarias;
 using System.Threading.Tasks;
 
 namespace Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias
 {
-    public class MovimentacaoBancariaServices : IMovimentacaoBancariaServices
+    public abstract class MovimentacaoBancariaServices : IMovimentacaoBancariaServices
     {
         private readonly IContaBancariaRepository _contaBancariaRepository;
+        private readonly IHiperAcademiaContext _hiperAcademiaContext;
+        private readonly IMapper _mapper;
+        private readonly IMovimentacaoBancariaRepository _movimentacaoBancariaRepository;
 
-        public MovimentacaoBancariaServices(IContaBancariaRepository contaBancariaRepository)
+        public MovimentacaoBancariaServices(IContaBancariaRepository contaBancariaRepository,
+            IHiperAcademiaContext hiperAcademiaContext,
+            IMapper mapper,
+            IMovimentacaoBancariaRepository movimentacaoBancariaRepository)
         {
             _contaBancariaRepository = contaBancariaRepository;
+            _hiperAcademiaContext = hiperAcademiaContext;
+            _mapper = mapper;
+            _movimentacaoBancariaRepository = movimentacaoBancariaRepository;
         }
 
         public async Task<MovimentacaoBancariaDto> CriarMovimentacaoBancariaAsync(CriarMovimentacaoBancariaDto dto)
@@ -25,7 +38,16 @@ namespace Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias
 
             var saldo = _contaBancariaRepository.GetSaldo(dto.ContaBancariaId);
 
-            return null;
+            var movimentacaoBancaria = CriarMovimentacaoBancaria(saldo);
+            if (movimentacaoBancaria.IsValid())
+            {
+                await _movimentacaoBancariaRepository.AddAsync(movimentacaoBancaria);
+                await _hiperAcademiaContext.SaveChangesAsync();
+            }
+
+            return _mapper.Map<MovimentacaoBancariaDto>(movimentacaoBancaria);
         }
+
+        protected abstract MovimentacaoBancaria CriarMovimentacaoBancaria(decimal saldo);
     }
 }

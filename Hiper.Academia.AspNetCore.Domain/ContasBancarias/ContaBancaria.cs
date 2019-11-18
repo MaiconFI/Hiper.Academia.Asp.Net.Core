@@ -13,6 +13,8 @@ namespace Hiper.Academia.AspNetCore.Domain.ContasBancarias
 
         public ContaBancaria(Cliente cliente, InstituicaoFinanceira instituicaoFinanceira, string numeroDaAgencia, string digitoDaAgencia, string numeroDaConta, string digitoDaConta)
         {
+            GerarIdExterno();
+
             SetCliente(cliente);
             SetInstituicaoFinanceira(instituicaoFinanceira);
             SetNumeroDaAgencia(numeroDaAgencia);

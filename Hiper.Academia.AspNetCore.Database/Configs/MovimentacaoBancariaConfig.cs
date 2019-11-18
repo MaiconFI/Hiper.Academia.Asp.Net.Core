@@ -11,6 +11,7 @@ namespace Hiper.Academia.AspNetCore.Database.Configs
             builder.ToTable(nameof(MovimentacaoBancaria));
             builder.HasKey(x => x.Id);
 
+            builder.Property(x => x.Data).IsRequired();
             builder.Property(x => x.Valor).IsRequired();
 
             builder.HasDiscriminator<string>("Discriminator")

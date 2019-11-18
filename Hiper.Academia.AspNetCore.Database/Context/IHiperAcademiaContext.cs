@@ -14,7 +14,6 @@ namespace Hiper.Academia.AspNetCore.Database.Context
         DbSet<Cliente> Clientes { get; set; }
 
         DbSet<ContaBancaria> ContasBancarias { get; set; }
-
         DatabaseFacade Database { get; }
         DbSet<InstituicaoFinanceira> InstituicoesFinanceiras { get; set; }
         DbSet<MovimentacaoBancaria> MovimentacoesBancarias { get; set; }

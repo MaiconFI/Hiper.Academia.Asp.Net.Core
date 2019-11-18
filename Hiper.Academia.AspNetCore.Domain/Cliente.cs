@@ -13,6 +13,8 @@ namespace Hiper.Academia.AspNetCore.Domain
 
         public Cliente(string cidade, DateTime dataDeNascimento, string nome, string telefone)
         {
+            GerarIdExterno();
+
             SetCidade(cidade);
             SetDataDeNascimento(dataDeNascimento);
             SetNome(nome);

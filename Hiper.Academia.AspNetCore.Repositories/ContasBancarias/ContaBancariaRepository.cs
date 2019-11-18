@@ -1,7 +1,11 @@
 ﻿using Hiper.Academia.AspNetCore.Database.Context;
+using Hiper.Academia.AspNetCore.Domain.ContasBancarias;
 using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Hiper.Academia.AspNetCore.Repositories.ContasBancarias
 {
@@ -14,13 +18,21 @@ namespace Hiper.Academia.AspNetCore.Repositories.ContasBancarias
             _hiperAcademiaContext = hiperAcademiaContext;
         }
 
-        public decimal GetSaldo(Guid contaBancariaIdExterno)
-            => _hiperAcademiaContext.MovimentacoesBancarias
-                .Where(x => x.ContaBancaria.IdExterno == contaBancariaIdExterno)
+        public async Task<ContaBancaria> GetContaBancariaPadraoAsync()
+            => await _hiperAcademiaContext.ContasBancarias.FirstOrDefaultAsync();
+
+        public async Task<ICollection<MovimentacaoBancaria>> GetMovimentacoesAsync(Guid contaBancariaIdExterno)
+            => await _hiperAcademiaContext.MovimentacoesBancarias
+                    //.Where(x => x.ContaBancaria.IdExterno == contaBancariaIdExterno) --entender pq não está funcionando
+                    .ToListAsync();
+
+        public async Task<decimal> GetSaldoAsync(Guid contaBancariaIdExterno)
+                    => await _hiperAcademiaContext.MovimentacoesBancarias
+                //.Where(x => x.ContaBancaria.IdExterno == contaBancariaIdExterno) --entender pq não está funcionando
                 .Select(x => new
                 {
                     Valor = x is Deposito ? x.Valor : -x.Valor
                 })
-                .Sum(x => x.Valor);
+                .SumAsync(x => x.Valor);
     }
 }

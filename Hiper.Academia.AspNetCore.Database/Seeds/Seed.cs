@@ -20,6 +20,7 @@ namespace Hiper.Academia.AspNetCore.Database.Seeds
             await new InstituicaoFinanceiraSeed(_hiperAcademiaContext).ExecuteAsync();
             await new ClienteSeed(_hiperAcademiaContext).ExecuteAsync();
             await new ContaBancariaSeed(_hiperAcademiaContext).ExecuteAsync();
+            await new MovimentacaoBancariaSeed(_hiperAcademiaContext).ExecuteAsync();
 
             await _hiperAcademiaContext.SaveChangesAsync();
         }

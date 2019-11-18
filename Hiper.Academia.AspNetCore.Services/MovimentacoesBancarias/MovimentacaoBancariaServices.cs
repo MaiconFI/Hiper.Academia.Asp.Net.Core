@@ -36,7 +36,7 @@ namespace Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias
                 return resultDto;
             }
 
-            var saldo = _contaBancariaRepository.GetSaldo(dto.ContaBancariaId);
+            var saldo = await _contaBancariaRepository.GetSaldoAsync(dto.ContaBancariaId);
 
             var movimentacaoBancaria = CriarMovimentacaoBancaria(saldo);
             if (movimentacaoBancaria.IsValid())

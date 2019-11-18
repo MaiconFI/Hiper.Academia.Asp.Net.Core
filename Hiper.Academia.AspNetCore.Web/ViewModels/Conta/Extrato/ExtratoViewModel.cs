@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias;
+using System.Collections.Generic;
 
 namespace Hiper.Academia.AspNetCore.Web.ViewModels.Conta.Extrato
 {
     public class ExtratoViewModel
     {
-        public ICollection<OperacaoViewModel> Operacoes { get; set; }
-        public decimal Saldo { get; set; }
+        public ICollection<MovimentacaoBancariaDto> Movimentacoes { get; set; }
     }
 }

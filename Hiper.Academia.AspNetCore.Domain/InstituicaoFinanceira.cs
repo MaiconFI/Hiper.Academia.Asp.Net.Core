@@ -9,6 +9,8 @@ namespace Hiper.Academia.AspNetCore.Domain
 
         public InstituicaoFinanceira(string codigo, string nome)
         {
+            GerarIdExterno();
+
             SetCodigo(codigo);
             SetNome(nome);
         }

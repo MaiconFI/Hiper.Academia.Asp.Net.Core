@@ -1,6 +1,6 @@
-﻿using Hiper.Academia.AspNetCore.Repositories.ContasBancarias;
+﻿using Hiper.Academia.AspNetCore.Domain.ContasBancarias;
+using Hiper.Academia.AspNetCore.Repositories.ContasBancarias;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace Hiper.Academia.AspNetCore.Web.Controllers.Base
@@ -14,7 +14,7 @@ namespace Hiper.Academia.AspNetCore.Web.Controllers.Base
             _contaBancariaRepository = contaBancariaRepository;
         }
 
-        protected async Task<Guid> GetContaBancariaPadraoAsync()
-            => (await _contaBancariaRepository.GetContaBancariaPadraoAsync()).IdExterno;
+        protected async Task<ContaBancaria> GetContaBancariaPadraoAsync()
+            => await _contaBancariaRepository.GetContaBancariaPadraoAsync();
     }
 }

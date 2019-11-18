@@ -18,8 +18,8 @@ namespace Hiper.Academia.AspNetCore.Web.Controllers
         [Route("")]
         public async Task<IActionResult> Index()
         {
-            var contaBancariaId = await GetContaBancariaPadraoAsync();
-            return View(await _contaBancariaRepository.GetSaldoAsync(contaBancariaId));
+            var contaBancaria = await GetContaBancariaPadraoAsync();
+            return View(await _contaBancariaRepository.GetSaldoAsync(contaBancaria.IdExterno));
         }
     }
 }

@@ -3,7 +3,6 @@ using Hiper.Academia.AspNetCore.Repositories.ContasBancarias;
 using Hiper.Academia.AspNetCore.Web.Controllers.Base;
 using Hiper.Academia.AspNetCore.Web.ViewModels.Conta.Saque;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -40,8 +39,8 @@ namespace Hiper.Academia.AspNetCore.Web.Controllers
         [HttpGet("visualizar-extrato")]
         public async Task<IActionResult> VisualizarExtrato(CancellationToken cancellationToken)
         {
-            var contaBancaria = await GetContaBancariaPadraoAsync();
-            var extrato = await _contaBancariaRepository.GetExtratoAsync(contaBancaria.IdExterno);
+            var contaBancaria = await GetContaBancariaPadraoAsync(cancellationToken);
+            var extrato = await _contaBancariaRepository.GetExtratoAsync(contaBancaria.IdExterno, cancellationToken);
 
             return View(extrato);
         }

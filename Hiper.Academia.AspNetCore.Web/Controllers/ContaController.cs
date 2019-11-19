@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
-using Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias;
 using Hiper.Academia.AspNetCore.Repositories.ContasBancarias;
 using Hiper.Academia.AspNetCore.Web.Controllers.Base;
-using Hiper.Academia.AspNetCore.Web.ViewModels.Conta.Extrato;
 using Hiper.Academia.AspNetCore.Web.ViewModels.Conta.Saque;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Hiper.Academia.AspNetCore.Web.Controllers
@@ -14,14 +11,12 @@ namespace Hiper.Academia.AspNetCore.Web.Controllers
     public class ContaController : BaseController
     {
         private readonly IContaBancariaRepository _contaBancariaRepository;
-        private readonly IMapper _mapper;
 
         public ContaController(IContaBancariaRepository contaBancariaRepository,
             IMapper mapper) :
             base(contaBancariaRepository)
         {
             _contaBancariaRepository = contaBancariaRepository;
-            _mapper = mapper;
         }
 
         [HttpGet("depositar")]
@@ -44,11 +39,9 @@ namespace Hiper.Academia.AspNetCore.Web.Controllers
         public async Task<IActionResult> VisualizarExtrato()
         {
             var contaBancaria = await GetContaBancariaPadraoAsync();
-            var movimentacoes = await _contaBancariaRepository.GetMovimentacoesAsync(contaBancaria.IdExterno);
-            var movimentacoesDto = _mapper.Map<ICollection<MovimentacaoBancariaDto>>(movimentacoes);
-            var extratoViewModel = new ExtratoViewModel { Movimentacoes = movimentacoesDto };
+            var extrato = await _contaBancariaRepository.GetExtratoAsync(contaBancaria.IdExterno);
 
-            return View(extratoViewModel);
+            return View(extrato);
         }
     }
 }

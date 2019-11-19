@@ -1,7 +1,6 @@
 ﻿using Hiper.Academia.AspNetCore.Domain.ContasBancarias;
-using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
+using Hiper.Academia.AspNetCore.Dtos.Extrato;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Hiper.Academia.AspNetCore.Repositories.ContasBancarias
@@ -10,7 +9,7 @@ namespace Hiper.Academia.AspNetCore.Repositories.ContasBancarias
     {
         Task<ContaBancaria> GetContaBancariaPadraoAsync();
 
-        Task<ICollection<MovimentacaoBancaria>> GetMovimentacoesAsync(Guid contaBancariaIdExterno);
+        Task<ExtratoDto> GetExtratoAsync(Guid contaBancariaIdExterno);
 
         Task<decimal> GetSaldoAsync(Guid contaBancariaIdExterno);
     }

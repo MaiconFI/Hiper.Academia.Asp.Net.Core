@@ -1,9 +1,9 @@
 ﻿using Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias;
 using System.Collections.Generic;
 
-namespace Hiper.Academia.AspNetCore.Web.ViewModels.Conta.Extrato
+namespace Hiper.Academia.AspNetCore.Dtos.Extrato
 {
-    public class ExtratoViewModel
+    public class ExtratoDto
     {
         public ICollection<MovimentacaoBancariaDto> Movimentacoes { get; set; }
     }

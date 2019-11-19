@@ -6,7 +6,7 @@ namespace Hiper.Academia.AspNetCore.Web.Middlewares.TimeCheck
 {
     public class TimeCheckMiddleware
     {
-        private readonly int _hourLimit = 12;
+        private readonly int _hourLimit = 23;
         private readonly RequestDelegate _next;
 
         public TimeCheckMiddleware(RequestDelegate next)

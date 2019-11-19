@@ -2,9 +2,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias
+namespace Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias.Depositos
 {
-    public interface IMovimentacaoBancariaServices
+    public interface IDepositoServices
     {
         Task<MovimentacaoBancariaDto> CriarMovimentacaoBancariaAsync(CriarMovimentacaoBancariaDto dto, CancellationToken cancellationToken);
     }

@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias.Depositos;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias.Saques;
 using Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias;
 
-namespace Hiper.Academia.AspNetCore.Web.Mappers.Converters.Operacoes
+namespace Hiper.Academia.AspNetCore.Web.Mappers.Converters.MovimentacoesBancarias
 {
     public class MovimentacaoBancariaToMovimentacaoBancariaDtoConverter : ITypeConverter<MovimentacaoBancaria, MovimentacaoBancariaDto>
     {

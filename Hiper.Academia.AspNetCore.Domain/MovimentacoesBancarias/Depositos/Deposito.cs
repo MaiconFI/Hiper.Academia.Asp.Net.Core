@@ -1,7 +1,7 @@
 ﻿using Hiper.Academia.AspNetCore.Domain.ContasBancarias;
 using System;
 
-namespace Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias
+namespace Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias.Depositos
 {
     public class Deposito : MovimentacaoBancaria
     {

@@ -1,4 +1,6 @@
 ﻿using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias.Depositos;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias.Saques;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

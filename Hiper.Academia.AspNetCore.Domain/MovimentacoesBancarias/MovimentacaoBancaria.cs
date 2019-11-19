@@ -25,7 +25,7 @@ namespace Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias
 
         private void SetContaBancaria(ContaBancaria contaBancaria)
         {
-            if (ContaBancaria is null)
+            if (contaBancaria is null)
             {
                 AddError("A conta bancária é obrigatória.");
                 return;

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Hiper.Academia.AspNetCore.Repositories.ContasBancarias
@@ -23,27 +24,26 @@ namespace Hiper.Academia.AspNetCore.Repositories.ContasBancarias
             _mapper = mapper;
         }
 
-        public async Task<ContaBancaria> GetContaBancariaPadraoAsync()
-            => await _hiperAcademiaContext.ContasBancarias.FirstOrDefaultAsync();
+        public async Task<ContaBancaria> GetContaBancariaAsync(Guid contaBancariaIdExterno, CancellationToken cancellationToken)
+            => await _hiperAcademiaContext.ContasBancarias.Where(x => x.IdExterno == contaBancariaIdExterno)
+                .FirstOrDefaultAsync(cancellationToken);
 
-        public async Task<ExtratoDto> GetExtratoAsync(Guid contaBancariaIdExterno)
-        {
-            var movimentacoes = await _hiperAcademiaContext.MovimentacoesBancarias
-                //.Where(x => x.ContaBancaria.IdExterno == contaBancariaIdExterno) --entender pq não está funcionando
-                .ToListAsync();
-            return new ExtratoDto
-            {
-                Movimentacoes = _mapper.Map<ICollection<MovimentacaoBancariaDto>>(movimentacoes)
-            };
-        }
+        public async Task<ContaBancaria> GetContaBancariaPadraoAsync(CancellationToken cancellationToken)
+            => await _hiperAcademiaContext.ContasBancarias
+                .FirstOrDefaultAsync(cancellationToken);
 
-        public async Task<decimal> GetSaldoAsync(Guid contaBancariaIdExterno)
+        public async Task<ICollection<MovimentacaoBancaria>> GetMovimentacoesAsync(Guid contaBancariaIdExterno, CancellationToken cancellationToken)
             => await _hiperAcademiaContext.MovimentacoesBancarias
-                //.Where(x => x.ContaBancaria.IdExterno == contaBancariaIdExterno) --entender pq não está funcionando
+                .Where(x => x.ContaBancaria.IdExterno == contaBancariaIdExterno)
+                .ToListAsync(cancellationToken);
+
+        public async Task<decimal> GetSaldoAsync(Guid contaBancariaIdExterno, CancellationToken cancellationToken)
+            => await _hiperAcademiaContext.MovimentacoesBancarias
+                .Where(x => x.ContaBancaria.IdExterno == contaBancariaIdExterno)
                 .Select(x => new
                 {
                     Valor = x is Deposito ? x.Valor : -x.Valor
                 })
-                .SumAsync(x => x.Valor);
+                .SumAsync(x => x.Valor, cancellationToken);
     }
 }

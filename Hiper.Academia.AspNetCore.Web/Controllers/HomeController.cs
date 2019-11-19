@@ -10,8 +10,8 @@ namespace Hiper.Academia.AspNetCore.Web.Controllers
     {
         private readonly IContaBancariaRepository _contaBancariaRepository;
 
-        public HomeController(IContaBancariaRepository contaBancariaRepository) :
-            base(contaBancariaRepository)
+        public HomeController(IContaBancariaRepository contaBancariaRepository)
+            : base(contaBancariaRepository)
         {
             _contaBancariaRepository = contaBancariaRepository;
         }

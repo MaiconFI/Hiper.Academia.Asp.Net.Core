@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Hiper.Academia.AspNetCore.Web.Controllers.Base
 {
-    public class BaseController : Controller
+    public abstract class BaseController : Controller
     {
         private readonly IContaBancariaRepository _contaBancariaRepository;
 
-        public BaseController(IContaBancariaRepository contaBancariaRepository)
+        protected BaseController(IContaBancariaRepository contaBancariaRepository)
         {
             _contaBancariaRepository = contaBancariaRepository;
         }

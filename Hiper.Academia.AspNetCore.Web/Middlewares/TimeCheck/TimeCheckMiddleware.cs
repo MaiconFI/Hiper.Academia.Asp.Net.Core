@@ -14,18 +14,18 @@ namespace Hiper.Academia.AspNetCore.Web.Middlewares.TimeCheck
             _next = next;
         }
 
-        private bool AplicacaoDisponivelParaTransacoes => DateTime.Now.Hour <= _hourLimit;
-
         public async Task Invoke(HttpContext context)
         {
-            if (AplicacaoDisponivelParaTransacoes)
+            if (AplicacaoDisponivelParaTransacoes())
                 await _next(context);
             else
             {
-                context.Response.StatusCode = 403;
+                context.Response.StatusCode = StatusCodes.Status403Forbidden;
                 context.Response.ContentType = "application/json";
                 await context.Response.WriteAsync($"Você só pode realizar trasações até às {_hourLimit}:59:59");
             }
         }
+
+        private bool AplicacaoDisponivelParaTransacoes() => DateTime.Now.Hour <= _hourLimit;
     }
 }

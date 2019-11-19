@@ -1,5 +1,6 @@
 ﻿using Hiper.Academia.AspNetCore.Database.Context;
 using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Hiper.Academia.AspNetCore.Repositories.MovimentacoesBancarias
@@ -13,9 +14,7 @@ namespace Hiper.Academia.AspNetCore.Repositories.MovimentacoesBancarias
             _hiperAcademiaContext = hiperAcademiaContext;
         }
 
-        public async Task AddAsync(MovimentacaoBancaria movimentacaoBancaria)
-        {
-            await _hiperAcademiaContext.MovimentacoesBancarias.AddAsync(movimentacaoBancaria);
-        }
+        public async Task AddAsync(MovimentacaoBancaria movimentacaoBancaria, CancellationToken cancellationToken)
+            => await _hiperAcademiaContext.MovimentacoesBancarias.AddAsync(movimentacaoBancaria, cancellationToken);
     }
 }

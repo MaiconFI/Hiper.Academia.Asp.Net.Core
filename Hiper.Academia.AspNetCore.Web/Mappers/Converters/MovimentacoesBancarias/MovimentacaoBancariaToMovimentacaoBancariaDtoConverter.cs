@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias.Depositos;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias.Saques;
 using Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias;
 
 namespace Hiper.Academia.AspNetCore.Web.Mappers.Converters.MovimentacoesBancarias

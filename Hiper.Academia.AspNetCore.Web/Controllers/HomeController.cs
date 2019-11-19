@@ -1,6 +1,7 @@
 ﻿using Hiper.Academia.AspNetCore.Repositories.ContasBancarias;
 using Hiper.Academia.AspNetCore.Web.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Hiper.Academia.AspNetCore.Web.Controllers
@@ -16,10 +17,10 @@ namespace Hiper.Academia.AspNetCore.Web.Controllers
         }
 
         [Route("")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
-            var contaBancaria = await GetContaBancariaPadraoAsync();
-            return View(await _contaBancariaRepository.GetSaldoAsync(contaBancaria.IdExterno));
+            var contaBancaria = await GetContaBancariaPadraoAsync(cancellationToken);
+            return View(await _contaBancariaRepository.GetSaldoAsync(contaBancaria.IdExterno, cancellationToken));
         }
     }
 }

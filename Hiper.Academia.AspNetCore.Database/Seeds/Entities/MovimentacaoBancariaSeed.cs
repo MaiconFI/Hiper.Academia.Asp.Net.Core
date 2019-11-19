@@ -1,5 +1,7 @@
 ﻿using Hiper.Academia.AspNetCore.Database.Context;
 using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias.Depositos;
+using Hiper.Academia.AspNetCore.Domain.MovimentacoesBancarias.Saques;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

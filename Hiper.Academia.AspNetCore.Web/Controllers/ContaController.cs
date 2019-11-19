@@ -6,6 +6,7 @@ using Hiper.Academia.AspNetCore.Web.ViewModels.Conta.Extrato;
 using Hiper.Academia.AspNetCore.Web.ViewModels.Conta.Saque;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Hiper.Academia.AspNetCore.Web.Controllers
@@ -29,22 +30,22 @@ namespace Hiper.Academia.AspNetCore.Web.Controllers
             => View();
 
         [HttpGet("sacar")]
-        public async Task<IActionResult> Sacar()
+        public async Task<IActionResult> Sacar(CancellationToken cancellationToken)
         {
-            var contaBancaria = await GetContaBancariaPadraoAsync();
+            var contaBancaria = await GetContaBancariaPadraoAsync(cancellationToken);
             var saqueViewModel = new SaqueViewModel
             {
                 ContaBancariaId = contaBancaria.IdExterno,
-                Saldo = await _contaBancariaRepository.GetSaldoAsync(contaBancaria.IdExterno)
+                Saldo = await _contaBancariaRepository.GetSaldoAsync(contaBancaria.IdExterno, cancellationToken)
             };
             return View(saqueViewModel);
         }
 
         [HttpGet("visualizar-extrato")]
-        public async Task<IActionResult> VisualizarExtrato()
+        public async Task<IActionResult> VisualizarExtrato(CancellationToken cancellationToken)
         {
-            var contaBancaria = await GetContaBancariaPadraoAsync();
-            var movimentacoes = await _contaBancariaRepository.GetMovimentacoesAsync(contaBancaria.IdExterno);
+            var contaBancaria = await GetContaBancariaPadraoAsync(cancellationToken);
+            var movimentacoes = await _contaBancariaRepository.GetMovimentacoesAsync(contaBancaria.IdExterno, cancellationToken);
             var movimentacoesDto = _mapper.Map<ICollection<MovimentacaoBancariaDto>>(movimentacoes);
             var extratoViewModel = new ExtratoViewModel { Movimentacoes = movimentacoesDto };
 

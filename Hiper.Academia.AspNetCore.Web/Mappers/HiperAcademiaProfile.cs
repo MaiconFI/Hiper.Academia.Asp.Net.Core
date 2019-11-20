@@ -13,6 +13,7 @@ namespace Hiper.Academia.AspNetCore.Web.Mappers
         {
             CreateMap<MovimentacaoBancaria, MovimentacaoBancariaDto>().ConvertUsing<MovimentacaoBancariaToMovimentacaoBancariaDtoConverter>();
             CreateMap<ErrorBase, DtoBase>();
+            CreateMap<MovimentacaoBancariaDto, GetMovimentacaoBancariaDto>();
         }
     }
 }

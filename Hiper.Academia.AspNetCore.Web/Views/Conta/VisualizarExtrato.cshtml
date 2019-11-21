@@ -1,4 +1,4 @@
-﻿@model Hiper.Academia.AspNetCore.Dtos.Extrato.ExtratoDto
+﻿@model Hiper.Academia.AspNetCore.Web.Models.Extrato.ExtratoViewModel
 @{
     ViewData["Title"] = "Extrato - Hiper Conta";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -19,7 +19,7 @@
         {
             <tr>
                 <th scope="row">@movimentacao.Data.ToShortDateString()</th>
-                <td>@(movimentacao.IsDeposito ? "(+)" : "(-)")</td>
+                <td>@(movimentacao.IsSaque ? "(-)" : "(+)")</td>
                 <td>@movimentacao.Valor.ToString("C")</td>
             </tr>
         }

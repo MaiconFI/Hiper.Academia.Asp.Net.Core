@@ -6,6 +6,6 @@ namespace Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias.Depositos
 {
     public interface IDepositoServices
     {
-        Task<MovimentacaoBancariaDto> CriarMovimentacaoBancariaAsync(CriarMovimentacaoBancariaDto dto, CancellationToken cancellationToken);
+        Task<CriarMovimentacaoBancariaDto> CriarMovimentacaoBancariaAsync(CriarMovimentacaoBancariaDto dto, CancellationToken cancellationToken);
     }
 }

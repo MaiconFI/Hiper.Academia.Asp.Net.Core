@@ -18,8 +18,11 @@ namespace Hiper.Academia.AspNetCore.Database.Seeds
         private async Task ExecuteAsync()
         {
             await new InstituicaoFinanceiraSeed(_hiperAcademiaContext).ExecuteAsync();
+            await _hiperAcademiaContext.SaveChangesAsync();
             await new ClienteSeed(_hiperAcademiaContext).ExecuteAsync();
+            await _hiperAcademiaContext.SaveChangesAsync();
             await new ContaBancariaSeed(_hiperAcademiaContext).ExecuteAsync();
+            await _hiperAcademiaContext.SaveChangesAsync();
             await new MovimentacaoBancariaSeed(_hiperAcademiaContext).ExecuteAsync();
 
             await _hiperAcademiaContext.SaveChangesAsync();

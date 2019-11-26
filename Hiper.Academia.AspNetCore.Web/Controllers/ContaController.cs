@@ -46,6 +46,8 @@ namespace Hiper.Academia.AspNetCore.Web.Controllers
         [HttpPost("sacar")]
         public async Task<IActionResult> Sacar(CriarMovimentacaoBancariaViewModel viewModel, CancellationToken cancellationToken)
         {
+            if (!ModelState.IsValid) return View(viewModel);
+
             var dto = _mapper.Map<CriarMovimentacaoBancariaDto>(viewModel);
             var resultDto = await _saqueServices.CriarMovimentacaoBancariaAsync(dto, cancellationToken);
             viewModel = _mapper.Map<CriarMovimentacaoBancariaViewModel>(resultDto);

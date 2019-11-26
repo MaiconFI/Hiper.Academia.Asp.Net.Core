@@ -33,6 +33,11 @@ namespace Hiper.Academia.AspNetCore.Web
 
             app.UseMvc()
                 .UseApiVersioning();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+            });
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -50,6 +55,7 @@ namespace Hiper.Academia.AspNetCore.Web
                 s.ReportApiVersions = true;
                 s.AssumeDefaultVersionWhenUnspecified = true;
             });
+            services.AddRazorPages();
 
             IoCServices.Register(services);
             IoCRepositories.Register(services);

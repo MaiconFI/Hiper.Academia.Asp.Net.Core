@@ -1,18 +1,24 @@
-﻿@model Hiper.Academia.AspNetCore.Web.ViewModels.Conta.Saque.SaqueViewModel
+﻿@model Hiper.Academia.AspNetCore.Web.Models.MovimentacoesBancarias.CriarMovimentacaoBancariaViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
 @{
     ViewData["Title"] = "Sacar - Hiper Conta";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h4>Sacar</h4>
-
-<div>
-    <div class="form-group">
-        Saldo atual: R$ <span id="saldo-atual">@Model.Saldo.ToString("N2")</span>
+<form asp-controller="Conta" asp-action="Saque" method="post">
+    <input asp-for="ContaBancariaId" type="hidden" />
+    <div class="card">
+        <div class="card-body">
+            <h4>Sacar</h4>
+            <label asp-for="Saldo"></label>R$ <span id="saldo-atual">@Model.Saldo.ToString("N2")</span>
+            <div class="form-group">
+                <label asp-for="Valor"></label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Sacar</button>
+        </div>
     </div>
-    <div class="form-group">
-        <label>Valor</label>
-        <input type="number" class="form-control" id="valor">
-    </div>
-    <button type="submit" class="btn btn-primary">Sacar</button>
-</div>
+</form>

@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Hiper.Academia.AspNetCore.Dtos.MovimentacoesBancarias
+namespace Hiper.Academia.AspNetCore.Web.Models.Extrato
 {
-    public class MovimentacaoBancariaDto
+    public class MovimentacaoBancariaViewModel
     {
         public DateTime Data { get; set; }
-        public bool IsDeposito { get; set; }
         public bool IsSaque { get; set; }
         public decimal Valor { get; set; }
     }

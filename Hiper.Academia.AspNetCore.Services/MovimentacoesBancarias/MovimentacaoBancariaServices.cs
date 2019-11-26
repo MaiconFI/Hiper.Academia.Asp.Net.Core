@@ -23,14 +23,13 @@ namespace Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias
             _movimentacaoBancariaRepository = movimentacaoBancariaRepository;
         }
 
-        public async Task<MovimentacaoBancariaDto> CriarMovimentacaoBancariaAsync(CriarMovimentacaoBancariaDto dto, CancellationToken cancellationToken)
+        public async Task<CriarMovimentacaoBancariaDto> CriarMovimentacaoBancariaAsync(CriarMovimentacaoBancariaDto dto, CancellationToken cancellationToken)
         {
-            var resultDto = new MovimentacaoBancariaDto();
-
             if (dto is null)
             {
-                resultDto.AddError("O dto é obrigatório e não pode ser nulo.");
-                return resultDto;
+                dto = new CriarMovimentacaoBancariaDto();
+                dto.AddError("A movimentação bancária é obrigatória e não pode ser nula.");
+                return dto;
             }
 
             var movimentacaoBancaria = await GetMovimentacaoBancariaAsync(dto, cancellationToken);
@@ -40,7 +39,7 @@ namespace Hiper.Academia.AspNetCore.Services.MovimentacoesBancarias
                 await _hiperAcademiaContext.SaveChangesAsync(cancellationToken);
             }
 
-            return _mapper.Map<MovimentacaoBancariaDto>(movimentacaoBancaria);
+            return dto;
         }
 
         protected abstract Task<MovimentacaoBancaria> GetMovimentacaoBancariaAsync(CriarMovimentacaoBancariaDto dto, CancellationToken cancellationToken);
